@@ -3,7 +3,7 @@ const expect = chai.expect;
 const { evaluateGuess } = require('../src/turns');
 
 describe('evaluateGuess function', () => {
-  beforeEach(() => {
+  before(() => {
     return sampleCard = {
       id: 1,
       question: 'What is my name?',
