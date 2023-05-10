@@ -1,11 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
+
 const { createNewRound, takeTurn, calcPercent, endRound } = require('../src/round');
-const { sampleCards } = require('../src/dummy-data');
 const { createDeck } = require('../src/deck'); 
+const { sampleCards } = require('../src/dummy-data');
 
 describe('createNewRound function', () => {
-  it('should create a new round that starts with the correct properties', () => {
+  it('should create a new round object that contains the correct properties', () => {
     const newDeck = createDeck(sampleCards);
 
     const newRound = createNewRound(newDeck);
@@ -38,3 +39,35 @@ describe('createNewRound function', () => {
     });
   });
 });
+
+describe('takeTurn function', () => {
+  it.only('should count the number of turns taken', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    const firstGuess = 'Rachel';
+
+    const firstTurn = takeTurn(firstGuess, newRound);
+
+    expect(newRound.turns).to.equal(1);
+  });
+
+  it('should update the currentCard', () => {
+
+  });
+
+  it('should print a different message if the guess is incorrect', () => {
+
+  });
+
+  it('should update the incorrect guesses array if the guess is incorrect', () => {
+
+  });
+
+  it('should print a message if the guess is correct', () => {
+
+  });
+
+  it('should not update the incorrectGuesses array if the guess is correct', () => {
+
+  });
+})
