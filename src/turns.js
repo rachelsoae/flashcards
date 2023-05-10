@@ -1,8 +1,6 @@
 function evaluateGuess(guess, card) {
   let message;
-  if (guess === card.correctAnswer) {
-    message = 'correct!'
-  };
+  guess === card.correctAnswer ? message = 'correct!' : message = 'incorrect!';
   return message;
 };
 
