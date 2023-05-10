@@ -7,7 +7,7 @@ describe('createDeck function', () => {
   it('should return an array of cards', () => {
     const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
 
-    let deck = createDeck(cards);
+    const deck = createDeck(cards);
 
     expect(deck).to.deep.equal([{
       id: 1,
@@ -26,4 +26,12 @@ describe('createDeck function', () => {
       correctAnswer: 'student'
     }])
   });
+
+  it('should count the number of cards in a deck', () => {
+    const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
+    const deck = createDeck(cards);
+    const numCards = countCards(deck);
+
+    expect(numCards).to.equal(3);
+  })
 });
