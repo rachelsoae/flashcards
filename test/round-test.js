@@ -2,15 +2,15 @@ const chai = require('chai');
 const expect = chai.expect;
 const { createNewRound, takeTurn, calcPercent, endRound } = require('../src/round');
 const { sampleCards } = require('../src/dummy-data');
-const { createDeck, countCards } = require('../src/deck'); 
+const { createDeck } = require('../src/deck'); 
 
 describe('createNewRound function', () => {
   it('should create a new round that starts with the correct properties', () => {
-    const newDeck = createDeck([sampleData]);
+    const newDeck = createDeck(sampleCards);
 
     const newRound = createNewRound(newDeck);
 
-    expect(newRound)to.deep.equal({
+    expect(newRound).to.deep.equal({
       deck: [{
         id: 1,
         question: 'What is my name?',
@@ -35,6 +35,6 @@ describe('createNewRound function', () => {
       },
       turns: 0,
       incorrectGuesses: []
-    };)
+    });
   });
 });
