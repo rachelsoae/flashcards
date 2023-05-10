@@ -17,8 +17,18 @@ describe('evaluateGuess function', () => {
     expect(result).to.equal('correct!');
   });
 
-  // it('should return a different message if the answer is incorrect', () => {
+  it('should return a different message if the answer is incorrect', () => {
+    const card = {
+      id: 1,
+      question: 'What is my name?', 
+      answers: ['Rachel', 'Katherine', 'Bell'],
+      correctAnswer: 'Rachel'
+    };
+    const guess = 'Katherine';
 
-  // });
+    const result = evaluateGuess(guess, card);
+
+    expect(result).to.equal('incorrect!');
+  });
 
 });
