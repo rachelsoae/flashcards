@@ -3,32 +3,28 @@ const expect = chai.expect;
 const { evaluateGuess } = require('../src/turns');
 
 describe('evaluateGuess function', () => {
-  it('should return a message if the answer is correct', () => {
-    const card = {
+  before(() => {
+    return sampleCard = {
       id: 1,
-      question: 'What is my name?', 
+      question: 'What is my name?',
       answers: ['Rachel', 'Katherine', 'Bell'],
       correctAnswer: 'Rachel'
     };
+  });
+  
+  it('should return a message if the answer is correct', () => {
     const guess = 'Rachel';
 
-    const result = evaluateGuess(guess, card);
+    const result = evaluateGuess(guess, sampleCard);
 
     expect(result).to.equal('correct!');
   });
 
   it('should return a different message if the answer is incorrect', () => {
-    const card = {
-      id: 1,
-      question: 'What is my name?', 
-      answers: ['Rachel', 'Katherine', 'Bell'],
-      correctAnswer: 'Rachel'
-    };
     const guess = 'Katherine';
 
-    const result = evaluateGuess(guess, card);
+    const result = evaluateGuess(guess, sampleCard);
 
     expect(result).to.equal('incorrect!');
   });
-
 });
