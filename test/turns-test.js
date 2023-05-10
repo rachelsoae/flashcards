@@ -23,7 +23,7 @@ describe('evaluateGuess function', () => {
   it('should return a different message if the answer is incorrect', () => {
     const guess = 'Katherine';
 
-    const result = evaluateGuess(guess, card);
+    const result = evaluateGuess(guess, sampleCard);
 
     expect(result).to.equal('incorrect!');
   });
