@@ -1,4 +1,4 @@
-function evaluateGuess(guess, card) {
+let evaluateGuess = (guess, card) => {
   let message;
   guess === card.correctAnswer ? message = 'correct!' : message = 'incorrect!';
   return message;
@@ -6,4 +6,4 @@ function evaluateGuess(guess, card) {
 
 module.exports = {
   evaluateGuess
-}
+};
