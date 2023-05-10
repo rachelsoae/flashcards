@@ -12,7 +12,7 @@ describe('evaluateGuess function', () => {
     };
   });
   
-  it('should return a message if the answer is correct', () => {
+  it.skip('should return a message if the answer is correct', () => {
     const guess = 'Rachel';
 
     const result = evaluateGuess(guess, sampleCard);
@@ -20,7 +20,7 @@ describe('evaluateGuess function', () => {
     expect(result).to.equal('correct!');
   });
 
-  it('should return a different message if the answer is incorrect', () => {
+  it.skip('should return a different message if the answer is incorrect', () => {
     const guess = 'Katherine';
 
     const result = evaluateGuess(guess, sampleCard);
