@@ -7,4 +7,12 @@ const createNewRound = (deck) => {
   };
 };
 
-module.exports = { createNewRound }
+const takeTurn = (guess, round) => {
+  round.turns += 1;
+  return round;
+};
+
+module.exports = { 
+  createNewRound,
+  takeTurn
+ }

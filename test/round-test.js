@@ -41,14 +41,18 @@ describe('createNewRound function', () => {
 });
 
 describe('takeTurn function', () => {
-  it.only('should count the number of turns taken', () => {
+  it('should count the number of turns taken', () => {
     const newDeck = createDeck(sampleCards);
     const newRound = createNewRound(newDeck);
     const firstGuess = 'Rachel';
+    const secondGuess = 'Katherine';
+    const thirdGuess = 'Bell';
 
-    const firstTurn = takeTurn(firstGuess, newRound);
+    takeTurn(firstGuess, newRound);
+    takeTurn(secondGuess, newRound);
+    takeTurn(secondGuess, newRound);
 
-    expect(newRound.turns).to.equal(1);
+    expect(newRound.turns).to.equal(3);
   });
 
   it('should update the currentCard', () => {
