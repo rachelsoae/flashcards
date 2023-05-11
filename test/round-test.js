@@ -56,7 +56,7 @@ describe('takeTurn function', () => {
   it.only('should update the currentCard', () => {
     const newDeck = createDeck(sampleCards);
     const newRound = createNewRound(newDeck);
-    const newGuess = 'Bell';
+    const newGuess = 'Cancer';
 
     takeTurn(newGuess, newRound);
     
@@ -65,7 +65,7 @@ describe('takeTurn function', () => {
       question: 'What is my sign?',
       answers: ['Scorpio', 'Cancer', 'Aries'],
       correctAnswer: 'Cancer'
-    })
+    });
   });
 
   it('should print a different message if the guess is incorrect', () => {
