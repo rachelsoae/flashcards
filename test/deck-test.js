@@ -4,9 +4,14 @@ const { createDeck, countCards } = require('../src/deck');
 const { sampleCards } = require('../src/dummy-data');
 
 describe('createDeck function', () => {
+  let cards;
+ 
+  beforeEach((done) => {
+    cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
+    done();
+  });
+  
   it('should return an array of cards', () => {
-    const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
-
     const deck = createDeck(cards);
 
     expect(deck).to.deep.equal([{
@@ -28,7 +33,6 @@ describe('createDeck function', () => {
   });
 
   it('should count the number of cards in a deck', () => {
-    const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
     const deck = createDeck(cards);
     const numCards = countCards(deck);
 
