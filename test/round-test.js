@@ -97,3 +97,16 @@ describe('calculatePercentCorrect function', () => {
     expect(result).to.equal(50);
   });
 });
+
+describe('endRound function', () => {
+  it('should print a message with the results of the round', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    takeTurn('Rachel', newRound);
+    takeTurn('Scorpio', newRound);
+
+    const result = endRound(round);
+
+    expect(result).to.equal('**Round Over!** You answered 50% of the questions correctly!')
+  });
+});
