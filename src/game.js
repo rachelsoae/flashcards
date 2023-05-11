@@ -2,7 +2,7 @@ const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const { createCard } = require('./card');
-const { createDeck } = require('./deck');
+const { createDeck, countCards } = require('./deck');
 const { createNewRound } = require('./round');
 
 const printMessage = deck => {
