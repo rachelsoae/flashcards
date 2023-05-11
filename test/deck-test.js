@@ -4,7 +4,7 @@ const { createDeck, countCards } = require('../src/deck');
 const { sampleCards } = require('../src/dummy-data');
 
 describe('createDeck function', () => {
-  it.skip('should return an array of cards', () => {
+  it('should return an array of cards', () => {
     const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
 
     const deck = createDeck(cards);
@@ -27,7 +27,7 @@ describe('createDeck function', () => {
     }])
   });
 
-  it.skip('should count the number of cards in a deck', () => {
+  it('should count the number of cards in a deck', () => {
     const cards = [sampleCards[0], sampleCards[1], sampleCards[2]];
     const deck = createDeck(cards);
     const numCards = countCards(deck);

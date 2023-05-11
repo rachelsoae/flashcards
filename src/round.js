@@ -9,12 +9,13 @@ const createNewRound = (deck) => {
   };
 };
 
-const takeTurn = (guess, round) => {
+const takeTurn = (guess, round) => {;
+  const message = evaluateGuess(guess, round.currentCard);
+  if (message === 'incorrect!') {
+    round.incorrectGuesses.push(round.currentCard.id);
+  };
   round.turns += 1;
   round.currentCard = round.deck[round.turns];
-  if (evaluateGuess(guess, round.currentCard) === 'incorrect!') {
-    round.incorrectGuesses.push(round.currentCard.id - 1);
-  };
   return round;
 };
 

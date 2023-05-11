@@ -71,22 +71,16 @@ describe('takeTurn function', () => {
 
     takeTurn(incorrectGuess, newRound);
 
-    expect(newRound.incorrectGuesses).to.equal(1);
+    expect(newRound.incorrectGuesses).to.deep.equal([1]);
   });
 
+  it('should not update the incorrectGuesses array if the guess is correct', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    const correctGuess = 'Rachel';
 
-  it.skip('should print a different message if the guess is incorrect', () => {
-    
+    takeTurn(correctGuess, newRound);
+
+    expect(newRound.incorrectGuesses).to.deep.equal([]);
   });
-
-  
-  it.skip('should not update the incorrectGuesses array if the guess is correct', () => {
-
-  });
-
-  it.skip('should print a message if the guess is correct', () => {
-
-  });
-
-  
-})
+});
