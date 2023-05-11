@@ -15,5 +15,14 @@ describe('create card function', () => {
     expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
-  });  
+  });
+
+  it('should create a different card', () => {
+    const card2 = createCard(10, 'What floats?', ['a duck', 'a witch', 'very small rocks'], 'a duck');
+
+    expect(card2.id).to.equal(10);
+    expect(card2.question).to.equal('What floats?');
+    expect(card2.answers).to.deep.equal(['a duck', 'a witch', 'very small rocks']);
+    expect(card2.correctAnswer).to.equal('a duck');
+  })
 });
