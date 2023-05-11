@@ -11,13 +11,12 @@ const createNewRound = (deck) => {
 
 const takeTurn = (guess, round) => {;
   const message = evaluateGuess(guess, round.currentCard);
-  console.log(message);
   if (message === 'incorrect!') {
     round.incorrectGuesses.push(round.currentCard.id);
   };
   round.turns += 1;
   round.currentCard = round.deck[round.turns];
-  return round;
+  return message;
 };
 
 const calculatePercentCorrect = (round) => {
