@@ -29,7 +29,7 @@ describe('createDeck function', () => {
       question: 'What is my occupation?',
       answers: ['astronaut', 'dancer', 'student'],
       correctAnswer: 'student'
-    }])
+    }]);
   });
 
   it('should return a different array of cards', () => {
@@ -48,12 +48,12 @@ describe('createDeck function', () => {
       answers: ['astronaut', 'dancer', 'student'],
       correctAnswer: 'student'
     }]);
-  })
+  });
 
   it('should count the number of cards in a deck', () => {
     const deck = createDeck(cards);
     const numCards = countCards(deck);
 
     expect(numCards).to.equal(3);
-  })
+  });
 });
