@@ -41,24 +41,20 @@ describe('createNewRound function', () => {
 });
 
 describe('takeTurn function', () => {
-    it('should count the number of turns taken', () => {
+  it('should count the number of turns taken', () => {
     const newDeck = createDeck(sampleCards);
     const newRound = createNewRound(newDeck);
-    const firstGuess = 'Katherine';
-    const secondGuess = 'Rachel';
-
-    takeTurn(firstGuess, newRound);
-    takeTurn(secondGuess, newRound);
+    takeTurn('guess', newRound);
+    takeTurn('second guess', newRound);
 
     expect(newRound.turns).to.equal(2);
   });
 
-  it.only('should update the currentCard', () => {
+  it('should update the currentCard', () => {
     const newDeck = createDeck(sampleCards);
     const newRound = createNewRound(newDeck);
-    const newGuess = 'Cancer';
 
-    takeTurn(newGuess, newRound);
+    takeTurn('guess', newRound);
     
     expect(newRound.currentCard).to.deep.equal({
       id: 2,
@@ -68,19 +64,29 @@ describe('takeTurn function', () => {
     });
   });
 
-  it('should print a different message if the guess is incorrect', () => {
-
-  });
-
   it('should update the incorrect guesses array if the guess is incorrect', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    const incorrectGuess = 'Katherine';
+
+    takeTurn(incorrectGuess, newRound);
+
+    expect(newRound.incorrectGuesses).to.equal(1);
+  });
+
+
+  it.skip('should print a different message if the guess is incorrect', () => {
+    
+  });
+
+  
+  it.skip('should not update the incorrectGuesses array if the guess is correct', () => {
 
   });
 
-  it('should print a message if the guess is correct', () => {
+  it.skip('should print a message if the guess is correct', () => {
 
   });
 
-  it('should not update the incorrectGuesses array if the guess is correct', () => {
-
-  });
+  
 })
