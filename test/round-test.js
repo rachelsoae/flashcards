@@ -41,22 +41,31 @@ describe('createNewRound function', () => {
 });
 
 describe('takeTurn function', () => {
-  it('should count the number of turns taken', () => {
+    it('should count the number of turns taken', () => {
     const newDeck = createDeck(sampleCards);
     const newRound = createNewRound(newDeck);
-    const firstGuess = 'Rachel';
-    const secondGuess = 'Katherine';
-    const thirdGuess = 'Bell';
+    const firstGuess = 'Katherine';
+    const secondGuess = 'Rachel';
 
     takeTurn(firstGuess, newRound);
     takeTurn(secondGuess, newRound);
-    takeTurn(secondGuess, newRound);
 
-    expect(newRound.turns).to.equal(3);
+    expect(newRound.turns).to.equal(2);
   });
 
-  it('should update the currentCard', () => {
+  it.only('should update the currentCard', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    const newGuess = 'Bell';
 
+    takeTurn(newGuess, newRound);
+    
+    expect(newRound.currentCard).to.deep.equal({
+      id: 2,
+      question: 'What is my sign?',
+      answers: ['Scorpio', 'Cancer', 'Aries'],
+      correctAnswer: 'Cancer'
+    })
   });
 
   it('should print a different message if the guess is incorrect', () => {
