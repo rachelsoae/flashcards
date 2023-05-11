@@ -1,4 +1,4 @@
-sampleCards = [{
+const sampleCards = [{
   id: 1,
   question: 'What is my name?',
   answers: ['Rachel', 'Katherine', 'Bell'],
