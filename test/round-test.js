@@ -84,3 +84,16 @@ describe('takeTurn function', () => {
     expect(newRound.incorrectGuesses).to.deep.equal([]);
   });
 });
+
+describe('calculatePercentCorrect function', () => {
+  it('should calculate the percentage of correct guesses', () => {
+    const newDeck = createDeck(sampleCards);
+    const newRound = createNewRound(newDeck);
+    takeTurn('Rachel', newRound);
+    takeTurn('Scorpio', newRound);
+    
+    const result = calculatePercentCorrect(round);
+
+    expect(result).to.equal(50);
+  });
+});
