@@ -26,7 +26,7 @@ const calculatePercentCorrect = (round) => {
 
 const endRound = (round) => {
   const result = calculatePercentCorrect(round);
-  return `**Round Over!** You answered ${result}% of the questions correctly!`;
+  console.log(`**Round Over!** You answered ${result}% of the questions correctly!`);
 };
 
 
