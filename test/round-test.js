@@ -87,26 +87,24 @@ describe('takeTurn function', () => {
   });
 });
 
-describe('calculatePercentCorrect function', () => {
-  it('should calculate the percentage of correct guesses', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
+describe('end of game functions', () => {
+  let newDeck;
+  let newRound;
+
+  beforeEach((done) => {
+    newDeck = createDeck(sampleCards);
+    newRound = createNewRound(newDeck);
     takeTurn('Rachel', newRound);
     takeTurn('Scorpio', newRound);
-    
+  })
+  
+  it('should calculate the percentage of correct guesses', () => {    
     const result = calculatePercentCorrect(round);
 
     expect(result).to.equal(50);
   });
-});
 
-describe('endRound function', () => {
   it('should print a message with the results of the round', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
-    takeTurn('Rachel', newRound);
-    takeTurn('Scorpio', newRound);
-
     const result = endRound(round);
 
     expect(result).to.equal('**Round Over!** You answered 50% of the questions correctly!');
