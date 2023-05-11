@@ -27,8 +27,8 @@ const calculatePercentCorrect = (round) => {
 
 const endRound = (round) => {
   const result = calculatePercentCorrect(round);
-  return `**Round Over!** You answered ${result}% of the questions correctly!`
-}
+  return `**Round Over!** You answered ${result}% of the questions correctly!`;
+};
 
 
 module.exports = { 
@@ -36,4 +36,4 @@ module.exports = {
   takeTurn,
   calculatePercentCorrect,
   endRound
- }
+ };

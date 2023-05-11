@@ -41,9 +41,18 @@ describe('createNewRound function', () => {
 });
 
 describe('takeTurn function', () => {
+  let newDeck;
+  let newRound;
+  before('set up a new deck', () => {
+    newDeck = createDeck(sampleCards);
+  });
+
+  beforeEach('set up a new round', (done) => {
+    newRound = createNewRound(newDeck);
+    done();
+  });
+  
   it('should count the number of turns taken', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
     takeTurn('guess', newRound);
     takeTurn('second guess', newRound);
 
@@ -51,9 +60,6 @@ describe('takeTurn function', () => {
   });
 
   it('should update the currentCard', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
-
     takeTurn('guess', newRound);
     
     expect(newRound.currentCard).to.deep.equal({
@@ -65,8 +71,6 @@ describe('takeTurn function', () => {
   });
 
   it('should update the incorrect guesses array if the guess is incorrect', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
     const incorrectGuess = 'Katherine';
 
     takeTurn(incorrectGuess, newRound);
@@ -75,8 +79,6 @@ describe('takeTurn function', () => {
   });
 
   it('should not update the incorrectGuesses array if the guess is correct', () => {
-    const newDeck = createDeck(sampleCards);
-    const newRound = createNewRound(newDeck);
     const correctGuess = 'Rachel';
 
     takeTurn(correctGuess, newRound);
@@ -107,6 +109,6 @@ describe('endRound function', () => {
 
     const result = endRound(round);
 
-    expect(result).to.equal('**Round Over!** You answered 50% of the questions correctly!')
+    expect(result).to.equal('**Round Over!** You answered 50% of the questions correctly!');
   });
 });
