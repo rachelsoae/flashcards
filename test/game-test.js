@@ -49,7 +49,7 @@ describe('start function, testable increments', () => {
     }]);
   });
 
-  it.only('should create a round from the new deck', () => {
+  it('should create a round from the new deck', () => {
     const cards = startCardsForTest(sampleCards);
     const deck = startDeckForTest(cards);
 
